@@ -42,11 +42,11 @@ export class FrontendWafStack extends Stack {
 
     const webAcl = new wafv2.CfnWebACL(this, "WebAcl", {
       defaultAction: { block: {} },
-      name: "FrontendWebAcl",
+      name: "FrontendWebAclDeploy",
       scope: "CLOUDFRONT",
       visibilityConfig: {
         cloudWatchMetricsEnabled: true,
-        metricName: "FrontendWebAcl",
+        metricName: "FrontendWebAclDeploy",
         sampledRequestsEnabled: true,
       },
       rules: [
@@ -56,7 +56,7 @@ export class FrontendWafStack extends Stack {
           action: { allow: {} },
           visibilityConfig: {
             cloudWatchMetricsEnabled: true,
-            metricName: "FrontendWebAcl",
+            metricName: "FrontendWebAclDeploy",
             sampledRequestsEnabled: true,
           },
           statement: {
@@ -69,7 +69,7 @@ export class FrontendWafStack extends Stack {
           action: { allow: {} },
           visibilityConfig: {
             cloudWatchMetricsEnabled: true,
-            metricName: "FrontendWebAcl",
+            metricName: "FrontendWebAclDeploy",
             sampledRequestsEnabled: true,
           },
           statement: {
