@@ -1,4 +1,4 @@
-import { FaBrain } from 'react-icons/fa';
+import { FaBrain, FaCode } from 'react-icons/fa'; // Assuming FaCode as an icon for llama2-70B for illustration
 import { AiFillThunderbolt } from 'react-icons/ai';
 import { BaseProps } from '../@types/common';
 import { Model } from '../@types/conversation';
@@ -15,9 +15,7 @@ const SwitchBedrockModel: React.FC<Props> = (props) => {
 
   return (
     <div
-      className={`${
-        props.className ?? ''
-      } flex justify-center gap-2 rounded-lg border border-light-gray bg-light-gray p-1 text-sm`}>
+      className={`${props.className ?? ''} flex justify-center gap-2 rounded-lg border border-light-gray bg-light-gray p-1 text-sm`}>
       <Button
         className={`${buttonClass} ${
           props.model === 'claude-instant-v1'
@@ -36,6 +34,16 @@ const SwitchBedrockModel: React.FC<Props> = (props) => {
         icon={<FaBrain />}
         onClick={() => props.setModel('claude-v2')}
         children={<span>Claude v2</span>}></Button>
+      {/* Add llama2-70B button */}
+      <Button
+        className={`${buttonClass} ${
+          props.model === 'llama2-70B'
+            ? ''
+            : 'border-light-gray bg-white text-dark-gray'
+        }`}
+        icon={<FaCode />} // Using FaCode as an example icon
+        onClick={() => props.setModel('llama2-70B')}
+        children={<span>Llama2 70B</span>}></Button>
     </div>
   );
 };

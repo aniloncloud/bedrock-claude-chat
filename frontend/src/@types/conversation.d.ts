@@ -1,5 +1,5 @@
 export type Role = 'system' | 'assistant' | 'user';
-export type Model = 'claude-instant-v1' | 'claude-v2';
+export type Model = 'claude-instant-v1' | 'claude-v2' | 'llama2-70B';
 export type Content = {
   contentType: 'text';
   body: string;

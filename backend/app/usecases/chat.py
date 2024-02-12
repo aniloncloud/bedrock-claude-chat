@@ -317,7 +317,7 @@ def chat(user_id: str, chat_input: ChatInput) -> ChatOutput:
 def propose_conversation_title(
     user_id: str,
     conversation_id: str,
-    model: Literal["claude-instant-v1", "claude-v2"] = "claude-instant-v1",
+    model: Literal["claude-instant-v1", "claude-v2", "llama2-70B"] = "claude-instant-v1",
 ) -> str:
     PROMPT = """Reading the conversation above, what is the appropriate title for the conversation? When answering the title, please follow the rules below:
 <rules>

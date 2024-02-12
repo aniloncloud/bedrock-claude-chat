@@ -23,6 +23,12 @@ def _extract_output_text(model: str, response) -> str:
             # claude outputs a space at the beginning of the text
             output_txt = output_txt[1:]
         return output_txt
+    elif model == "llama2-70B":
+        # Add the specific extraction logic for llama2 70B here
+        # For example:
+        output = json.loads(response.get("body").read())
+        output_txt = output["text"]
+        return output_txt
     else:
         raise NotImplementedError()
 
@@ -31,10 +37,10 @@ def get_model_id(model: str) -> str:
     # Ref: https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids-arns.html
     if model == "claude-v2":
         return "anthropic.claude-v2"
-    elif model == "claude-instant-v1":
-        return "anthropic.claude-instant-v1"
-    else:
-        raise NotImplementedError()
+    elif model == "llama2-70B":
+        # Return the specific model ID for llama2 70B here
+        # For example:
+        return "anthropic.llama2-70B"
 
 
 def invoke(prompt: str, model: str) -> str:
