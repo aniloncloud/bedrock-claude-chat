@@ -1,16 +1,20 @@
 import json
 
-from app.config import EMBEDDING_CONFIG, GENERATION_CONFIG
+from app.config import EMBEDDING_CONFIG, GENERATION_CONFIG, LLAMA2_70B_CONFIG
 from app.utils import get_bedrock_client
 
 client = get_bedrock_client()
 
 
 def _create_body(model: str, prompt: str):
-    if model in ("claude-instant-v1", "claude-v2","llama2-70B"):
+    if model in ("claude-instant-v1", "claude-v2"):
         parameter = GENERATION_CONFIG
         parameter["prompt"] = prompt
         return json.dumps(parameter)
+    elif model == "llama2-70B":
+        parameter = LLAMA2_70B_CONFIG
+        parameter["prompt"] = prompt
+        return json.dumps(parameter)        
     else:
         raise NotImplementedError()
 

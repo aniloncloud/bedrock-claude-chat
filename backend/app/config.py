@@ -28,11 +28,7 @@ LLAMA2_70B_CONFIG = {
     # Add the specific parameters required by the llama2 70B model here
     # For example:
     "model_id": "llama2-70B",
-    "max_tokens": 4096,
-    "temperature": 0.7,
-    "top_p": 0.95,
-    "top_k": 50,
-    "frequency_penalty": 0.6,
-    "presence_penalty": 0.6,
-    "stop_sequences": ["<end of text>"],
+    "temperature": 0.3,
+    "top_p": 0.999,
+    "max_gen_len": 2048
 }
