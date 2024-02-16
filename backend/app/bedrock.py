@@ -40,7 +40,7 @@ def get_model_id(model: str) -> str:
     elif model == "llama2-70B":
         # Return the specific model ID for llama2 70B here
         # For example:
-        return "anthropic.llama2-70B"
+        return "meta.llama2-70b-chat-v1"
 
 
 def invoke(prompt: str, model: str) -> str:
